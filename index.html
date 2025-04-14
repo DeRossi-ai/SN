@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartFit™ Pro Watch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #111;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .product-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+    }
+    p.description {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .price {
+      font-size: 1.8rem;
+      color: #0070f3;
+      margin: 10px 0 30px;
+    }
+    .button {
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+
+  <script>
+    const monetagLinks = [
+      "https://stenexeb.xyz/4/9067149",
+      "https://stenexeb.xyz/4/9067125",
+      "https://stenexeb.xyz/4/9067207",
+      "https://stenexeb.xyz/4/9067146"
+    ];
+
+    const finalLink = "https://tuproducto.com"; // Cambia este por el enlace final
+
+    window.onload = function () {
+      let delay = 0;
+
+      // Abrir los 4 enlaces de Monetag uno por uno
+      monetagLinks.forEach(link => {
+        setTimeout(() => {
+          window.open(link, "_blank");
+        }, delay);
+        delay += 1000;
+      });
+
+      // Abrir el enlace final
+      setTimeout(() => {
+        window.open(finalLink, "_blank");
+      }, delay);
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" alt="SmartFit Watch" class="product-image" />
+    <h1>SmartFit™ Pro Watch</h1>
+    <p class="description">Track your health, stay connected, and look great. The ultimate smartwatch experience for 2025.</p>
+    <div class="price">$49.95 USD</div>
+    <button class="button">Buy Now</button>
+  </div>
+</body>
+</html>
