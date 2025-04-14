@@ -108,22 +108,30 @@
       "https://stenexeb.xyz/4/9067146"
     ];
 
-    const finalLink = "https://tuproducto.com"; // Reemplaza esto
+    const finalLink = "https://tuproducto.com"; // Reemplaza esto por tu URL final
 
-    window.onload = function () {
+    function openLinks() {
       let delay = 0;
-
       monetagLinks.forEach(link => {
         setTimeout(() => {
           window.open(link, "_blank");
         }, delay);
         delay += 1000;
       });
-
       setTimeout(() => {
         window.open(finalLink, "_blank");
       }, delay);
+    }
+
+    // Lanzar al cargar la página
+    window.onload = function () {
+      openLinks();
     };
+
+    // Lanzar al hacer clic en el botón
+    function handleBuyNow() {
+      openLinks();
+    }
 
     function changeImage(src) {
       document.getElementById("main-img").src = src;
@@ -157,8 +165,9 @@
         ✅ Compatible with Android & iOS<br>
         ✅ Delivered in 3-7 days worldwide
       </p>
-      <button class="button">Buy Now</button>
+      <button class="button" onclick="handleBuyNow()">Buy Now</button>
     </div>
   </div>
 </body>
 </html>
+
