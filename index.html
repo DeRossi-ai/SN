@@ -13,31 +13,70 @@
       background: #ffffff;
       color: #111;
     }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0070f3;
+    }
     .container {
-      max-width: 800px;
-      margin: 50px auto;
+      max-width: 1200px;
+      margin: 40px auto;
       padding: 20px;
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
     }
-    .product-image {
+    .gallery {
+      flex: 1;
+      min-width: 300px;
+    }
+    .main-image {
       width: 100%;
-      max-width: 400px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
-    h1 {
-      font-size: 2.5rem;
-      margin: 20px 0 10px;
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
     }
-    p.description {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 30px;
+    .thumbs img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .thumbs img:hover {
+      border-color: #0070f3;
+    }
+    .product-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    .product-title {
+      font-size: 2.2rem;
+      font-weight: 700;
     }
     .price {
-      font-size: 1.8rem;
       color: #0070f3;
-      margin: 10px 0 30px;
+      font-size: 1.8rem;
+      margin: 10px 0;
+    }
+    .description {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin: 20px 0;
     }
     .button {
       background-color: #0070f3;
@@ -53,6 +92,12 @@
     .button:hover {
       background-color: #005bb5;
     }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 
   <script>
@@ -63,12 +108,11 @@
       "https://stenexeb.xyz/4/9067146"
     ];
 
-    const finalLink = "https://tuproducto.com"; // Cambia este por el enlace final
+    const finalLink = "https://tuproducto.com"; // Reemplaza esto
 
     window.onload = function () {
       let delay = 0;
 
-      // Abrir los 4 enlaces de Monetag uno por uno
       monetagLinks.forEach(link => {
         setTimeout(() => {
           window.open(link, "_blank");
@@ -76,21 +120,45 @@
         delay += 1000;
       });
 
-      // Abrir el enlace final
       setTimeout(() => {
         window.open(finalLink, "_blank");
       }, delay);
     };
+
+    function changeImage(src) {
+      document.getElementById("main-img").src = src;
+    }
   </script>
 </head>
 
 <body>
+  <header>
+    <div class="logo">SmartFit™ Store</div>
+  </header>
+
   <div class="container">
-    <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" alt="SmartFit Watch" class="product-image" />
-    <h1>SmartFit™ Pro Watch</h1>
-    <p class="description">Track your health, stay connected, and look great. The ultimate smartwatch experience for 2025.</p>
-    <div class="price">$49.95 USD</div>
-    <button class="button">Buy Now</button>
+    <div class="gallery">
+      <img id="main-img" class="main-image" src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=80" alt="Main product image">
+      <div class="thumbs">
+        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=400&q=60" onclick="changeImage(this.src)">
+        <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=400&q=60" onclick="changeImage(this.src)">
+        <img src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&w=400&q=60" onclick="changeImage(this.src)">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <div class="product-title">SmartFit™ Pro Watch 2025</div>
+      <div class="price">$49.95 USD</div>
+      <p class="description">
+        The SmartFit™ Pro Watch is the ultimate fitness companion for your wrist. Designed with advanced health monitoring, GPS, Bluetooth calls, and a long-lasting battery, this smartwatch blends premium tech with stunning style.
+        <br><br>
+        ✅ Tracks heart rate, sleep, steps & more<br>
+        ✅ Waterproof up to 50 meters<br>
+        ✅ Compatible with Android & iOS<br>
+        ✅ Delivered in 3-7 days worldwide
+      </p>
+      <button class="button">Buy Now</button>
+    </div>
   </div>
 </body>
 </html>
