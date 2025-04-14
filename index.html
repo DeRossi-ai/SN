@@ -21,6 +21,14 @@
       align-items: center;
     }
     .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .logo-text {
       font-size: 1.8rem;
       font-weight: 800;
       color: #0070f3;
@@ -108,7 +116,7 @@
       "https://stenexeb.xyz/4/9067146"
     ];
 
-    const finalLink = "https://tuproducto.com"; // Reemplaza esto por tu URL final
+    const finalLink = "https://tuproducto.com"; // Reemplaza con tu link final
 
     function openLinks() {
       let delay = 0;
@@ -123,13 +131,12 @@
       }, delay);
     }
 
-    // Lanzar al cargar la página
     window.onload = function () {
       openLinks();
     };
 
-    // Lanzar al hacer clic en el botón
-    function handleBuyNow() {
+    function handleBuyNow(event) {
+      event.preventDefault(); // Evita cualquier comportamiento por defecto
       openLinks();
     }
 
@@ -141,7 +148,10 @@
 
 <body>
   <header>
-    <div class="logo">SmartFit™ Store</div>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" alt="Logo"> <!-- REEMPLAZA ESTE LINK POR EL TUYO -->
+      <div class="logo-text">SmartFit™ Store</div>
+    </div>
   </header>
 
   <div class="container">
@@ -165,9 +175,10 @@
         ✅ Compatible with Android & iOS<br>
         ✅ Delivered in 3-7 days worldwide
       </p>
-      <button class="button" onclick="handleBuyNow()">Buy Now</button>
+      <button class="button" onclick="handleBuyNow(event)">Buy Now</button>
     </div>
   </div>
 </body>
 </html>
+
 
