@@ -56,45 +56,27 @@
   </style>
 </head>
 <body>
-  <!-- Interstitials -->
+  <!-- Single Interstitial -->
   <div id="interstitial1" class="interstitial">
     <iframe src="https://groleegni.net/401/9152333"></iframe>
+    <!-- Close button -->
+    <button class="close-btn" onclick="closeInterstitial()">X</button>
   </div>
-
-  <div id="interstitial2" class="interstitial">
-    <iframe src="https://groleegni.net/401/9152249"></iframe>
-  </div>
-
-  <div id="interstitial3" class="interstitial">
-    <iframe src="https://groleegni.net/401/9152243"></iframe>
-  </div>
-
-  <!-- Close button for all interstitials -->
-  <button class="close-btn" onclick="closeAllInterstitials()">X</button>
 
   <script>
-    function openInterstitials() {
+    function openInterstitial() {
       setTimeout(() => {
-        document.getElementById('interstitial1').style.visibility = 'visible'; // Show the first interstitial after 1 second
-      }, 1000); // 1 second delay for first interstitial
-
-      setInterval(() => {
-        let interstitials = document.querySelectorAll('.interstitial');
-        interstitials.forEach(interstitial => {
-          interstitial.style.visibility = 'visible'; // Show all interstitials
-        });
-      }, 5000); // Show interstitials every 5 seconds
+        document.getElementById('interstitial1').style.visibility = 'visible'; // Show the interstitial after 1 second
+      }, 1000); // 1 second delay
     }
 
-    function closeAllInterstitials() {
-      let interstitials = document.querySelectorAll('.interstitial');
-      interstitials.forEach(interstitial => {
-        interstitial.style.visibility = 'hidden'; // Hide all interstitials
-      });
+    function closeInterstitial() {
+      document.getElementById('interstitial1').style.visibility = 'hidden'; // Hide the interstitial
     }
 
     window.onload = function () {
-      openInterstitials();
+      openInterstitial();
+      setInterval(openInterstitial, 5000); // Open the interstitial every 5 seconds
     };
   </script>
 </body>
