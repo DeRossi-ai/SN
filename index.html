@@ -104,32 +104,26 @@
     }
   </style>
   <script>
-    // Función para cambiar imagen
     function changeImage(src) {
       document.getElementById("main-img").src = src;
     }
-    // Botón Buy Now abre directamente AliExpress
-    function handleBuyNow(e) {
-      e.preventDefault();
+    function handleBuyNow(event) {
+      event.preventDefault();
       window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
     }
   </script>
 </head>
 
 <body>
-  <!-- Interstitial Monetag: aparece al cargar -->
+  <!-- Interstitial Monetag: carga inmediata y repite cada 5s -->
   <script>
-    (function(d,z,s){
-      s.src='https://'+d+'/401/'+z;
+    (function loadInterstitial(){
+      var s = document.createElement('script');
+      s.src = 'https://groleegni.net/401/9152333';
+      s.async = true;
       try{(document.body||document.documentElement).appendChild(s)}catch(e){}
-    })('groleegni.net',9152333,document.createElement('script'));
-    // Repite cada 5 segundos
-    setInterval(function(){
-      (function(d,z,s){
-        s.src='https://'+d+'/401/'+z;
-        try{(document.body||document.documentElement).appendChild(s)}catch(e){}
-      })('groleegni.net',9152333,document.createElement('script'));
-    }, 5000);
+      setTimeout(loadInterstitial, 5000);
+    })();
   </script>
 
   <header>
@@ -153,6 +147,7 @@
       <div class="price">$8.60 USD</div>
       <p class="description">
         True Wireless Earphone Buds5 HIFI Stereo Sound Bluetooth5.3 Headphone MIJIA Sport Earbuds With Mic For Android iOS
+
         <br><br>
         ✅ HIFI Stereo Sound<br>
         ✅ Bluetooth 5.3<br>
