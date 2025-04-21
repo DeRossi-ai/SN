@@ -17,7 +17,7 @@
     header {
       background: #111;
       color: #fff;
-      padding: 5px 40px; /* Reduje el padding superior a 5px */
+      padding: 5px 40px;
       display: flex;
       align-items: center;
     }
@@ -27,7 +27,7 @@
       gap: 12px;
     }
     .logo img {
-      height: 80px; /* Reducí el tamaño del logo */
+      height: 80px;
     }
     .container {
       max-width: 1200px;
@@ -103,45 +103,19 @@
       }
     }
   </style>
-
-  <script>
-    const monetagLinks = [
-      "https://stenexeb.xyz/4/9067149",
-      "https://stenexeb.xyz/4/9067125",
-      "https://stenexeb.xyz/4/9067207"
-    ];
-
-    const finalLink = "https://s.click.aliexpress.com/e/_olRjLYL"; // Reemplaza con tu link final
-
-    function openLinks() {
-      let delay = 0;
-      monetagLinks.forEach(link => {
-        setTimeout(() => {
-          window.open(link, "_blank");
-        }, delay);
-        delay += 1000;
-      });
-      setTimeout(() => {
-        window.open(finalLink, "_blank");
-      }, delay);
-    }
-
-    window.onload = function () {
-      openLinks();
-    };
-
-    function handleBuyNow(event) {
-      event.preventDefault();
-      openLinks();
-    }
-
-    function changeImage(src) {
-      document.getElementById("main-img").src = src;
-    }
-  </script>
 </head>
 
 <body>
+  <!-- Interstitial Monetag script -->
+  <script>
+    (function(d, z, s){
+      s.src = 'https://' + d + '/401/' + z;
+      try {
+        (document.body || document.documentElement).appendChild(s)
+      } catch (e) {}
+    })('groleegni.net', 9152333, document.createElement('script'));
+  </script>
+
   <header>
     <div class="logo">
       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDK1dca9yDQBl0ZADN68S1_7knXAgLNiAuDM1RQKcSbgYVV6pY75mq3vOBlmVR2atTfDgmICYCBfMhyphenhyphencV3jQ2po9OeWFeQ-KMsvj2g8Wbp4hEnlMzy2LiYyGsvI0AqxFzFJqIWN93ilgNczdhEYENtZzQviwa-wnKpC5VYeBnvSYgyfO6GWisxZC3BYi4/s1080/Posts%20(1)-Photoroom.png" alt="Logo">
@@ -173,8 +147,15 @@
         ✅ Portable Charging Case<br>
         ✅ Fast Delivery (3-7 days worldwide)<br>
       </p>
-      <button class="button" onclick="handleBuyNow(event)">Buy Now</button>
+      <a class="button" href="https://s.click.aliexpress.com/e/_olRjLYL" target="_blank">Buy Now</a>
     </div>
   </div>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById("main-img").src = src;
+    }
+  </script>
 </body>
 </html>
+
