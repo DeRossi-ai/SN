@@ -17,7 +17,7 @@
     header {
       background: #111;
       color: #fff;
-      padding: 5px 40px; /* Reduje el padding superior a 5px */
+      padding: 5px 40px;
       display: flex;
       align-items: center;
     }
@@ -27,7 +27,7 @@
       gap: 12px;
     }
     .logo img {
-      height: 80px; /* Reducí el tamaño del logo */
+      height: 80px;
     }
     .container {
       max-width: 1200px;
@@ -105,34 +105,18 @@
   </style>
 
   <script>
-    const monetagLinks = [
-      "https://stenexeb.xyz/4/9067149",
-      "https://stenexeb.xyz/4/9067125",
-      "https://stenexeb.xyz/4/9067207"
-    ];
-
-    const finalLink = "https://s.click.aliexpress.com/e/_olRjLYL"; // Reemplaza con tu link final
-
-    function openLinks() {
-      let delay = 0;
-      monetagLinks.forEach(link => {
-        setTimeout(() => {
-          window.open(link, "_blank");
-        }, delay);
-        delay += 1000;
-      });
-      setTimeout(() => {
-        window.open(finalLink, "_blank");
-      }, delay);
-    }
+    const interstitialLink = "https://stenexeb.xyz/4/9067149";
+    const finalLink = "https://s.click.aliexpress.com/e/_olRjLYL";
 
     window.onload = function () {
-      openLinks();
+      // Solo un interstitial al cargar
+      window.open(interstitialLink, "_blank");
     };
 
     function handleBuyNow(event) {
+      // Abrir directamente el link final
       event.preventDefault();
-      openLinks();
+      window.open(finalLink, "_blank");
     }
 
     function changeImage(src) {
