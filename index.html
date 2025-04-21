@@ -139,7 +139,7 @@
   <script>
     const finalLink = "https://s.click.aliexpress.com/e/_olRjLYL"; 
 
-    // Función para mostrar el interstitial
+    // Función para mostrar el interstitial de Monetag
     function showInterstitial() {
       const interstitial = document.createElement('div');
       interstitial.classList.add('interstitial');
@@ -159,7 +159,7 @@
         interstitial.style.display = 'flex';
       }, 500); // Aparece con retraso de 0.5 segundos
 
-      // Cerrar interstitial
+      // Cerrar interstitial al hacer clic
       interstitial.onclick = function() {
         interstitial.style.display = 'none';
       }
