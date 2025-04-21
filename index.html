@@ -103,27 +103,23 @@
       }
     }
   </style>
-  <script>
-    function changeImage(src) {
-      document.getElementById("main-img").src = src;
-    }
-    function handleBuyNow(event) {
-      event.preventDefault();
-      window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
-    }
-  </script>
 </head>
-
 <body>
   <!-- Interstitial Monetag: carga inmediata y repite cada 5s -->
   <script>
-    (function loadInterstitial(){
-      var s = document.createElement('script');
-      s.src = 'https://groleegni.net/401/9152333';
-      s.async = true;
-      try{(document.body||document.documentElement).appendChild(s)}catch(e){}
-      setTimeout(loadInterstitial, 5000);
-    })();
+    document.addEventListener('DOMContentLoaded', function() {
+      // Función para insertar el script de Monetag
+      function loadInterstitial() {
+        var s = document.createElement('script');
+        s.src = 'https://groleegni.net/401/9152333';
+        s.async = true;
+        (document.body || document.documentElement).appendChild(s);
+      }
+      // Carga inmediata al llegar el visitante
+      loadInterstitial();
+      // Refresca el intersticial cada 5 segundos
+      setInterval(loadInterstitial, 5000);
+    });
   </script>
 
   <header>
@@ -160,5 +156,15 @@
       <button class="button" onclick="handleBuyNow(event)">Buy Now</button>
     </div>
   </div>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById("main-img").src = src;
+    }
+    function handleBuyNow(event) {
+      event.preventDefault();
+      window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
+    }
+  </script>
 </body>
 </html>
