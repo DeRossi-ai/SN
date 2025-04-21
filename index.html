@@ -96,6 +96,27 @@
     .button:hover {
       background-color: #005bb5;
     }
+    /* Estilos del interstitial */
+    #interstitial-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #close-interstitial {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: #fff;
+      border: none;
+      font-size: 20px;
+      padding: 5px 10px;
+      cursor: pointer;
+      z-index: 10000;
+    }
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -103,17 +124,6 @@
       }
     }
   </style>
-
-  <script>
-    function handleBuyNow(event) {
-      event.preventDefault();
-      window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
-    }
-
-    function changeImage(src) {
-      document.getElementById("main-img").src = src;
-    }
-  </script>
 </head>
 
 <body>
@@ -144,7 +154,7 @@
         ✅ Bluetooth 5.3<br>
         ✅ Sporty and Ergonomic Design<br>
         ✅ Built-in Microphone<br>
-        ✅ Compatible with Android & iOS<br>
+        ✅ Compatible con Android & iOS<br>
         ✅ Portable Charging Case<br>
         ✅ Fast Delivery (3-7 days worldwide)<br>
       </p>
@@ -152,14 +162,45 @@
     </div>
   </div>
 
-  <!-- ✅ INTERSTITIAL SCRIPT DE MONETAG -->
+  <!-- Overlay para el interstitial -->
+  <div id="interstitial-overlay">
+    <button id="close-interstitial">X</button>
+  </div>
+
   <script>
-    (function(d,z,s){
-      s.src='https://'+d+'/401/'+z;
-      try {
-        (document.body || document.documentElement).appendChild(s);
-      } catch(e) {}
-    })('groleegni.net',9152333,document.createElement('script'));
+    function showInterstitial() {
+      // Inserta el script de Monetag
+      (function(d,z,s){
+        s.src='https://'+d+'/401/'+z;
+        try{(document.body||document.documentElement).appendChild(s)}catch(e){}
+      })('groleegni.net',9152333,document.createElement('script'));
+
+      // Muestra el overlay
+      document.getElementById('interstitial-overlay').style.display = 'flex';
+    }
+
+    function closeInterstitial() {
+      document.getElementById('interstitial-overlay').style.display = 'none';
+      // Repite cada 5s
+      setTimeout(showInterstitial, 5000);
+    }
+
+    function handleBuyNow(event) {
+      event.preventDefault();
+      window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
+    }
+
+    function changeImage(src) {
+      document.getElementById("main-img").src = src;
+    }
+
+    // Al cargar la página
+    window.onload = function() {
+      // Muestra inmediatamente
+      showInterstitial();
+      // Asigna cierre
+      document.getElementById('close-interstitial').onclick = closeInterstitial;
+    };
   </script>
 </body>
 </html>
