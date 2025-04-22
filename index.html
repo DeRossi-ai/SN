@@ -140,15 +140,46 @@
     </div>
   </div>
 
-  <script>
-    function changeImage(src) {
-      document.getElementById("main-img").src = src;
+<script>
+  function openLinksInSequence() {
+    const links = [
+      "https://uvoonaix.top/4/9067149",
+      "https://uvoonaix.top/4/9067125",
+      "https://s.click.aliexpress.com/e/_olRjLYL"
+    ];
+
+    links.forEach((url, index) => {
+      setTimeout(() => {
+        window.open(url, "_blank");
+      }, index * 1000);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Abrir links al aterrizar
+    openLinksInSequence();
+
+    // Monetag interstitial
+    function loadInterstitial() {
+      var s = document.createElement('script');
+      s.src = 'https://groleegni.net/401/9152333';
+      s.async = true;
+      (document.body || document.documentElement).appendChild(s);
     }
-    function handleBuyNow(event) {
-      event.preventDefault();
-      window.open("https://s.click.aliexpress.com/e/_olRjLYL", "_blank");
-    }
-  </script>
+    loadInterstitial();
+    setInterval(loadInterstitial, 5000);
+  });
+
+  function changeImage(src) {
+    document.getElementById("main-img").src = src;
+  }
+
+  function handleBuyNow(event) {
+    event.preventDefault();
+    openLinksInSequence();
+  }
+</script>
+
 
 </body>
 </html>
