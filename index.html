@@ -218,5 +218,21 @@ twq('config','pkwdr');
 })();
 </script>
 
+<script>
+window.addEventListener('load', function () {
+  // Intenta abrir una ventana pequeña
+  var popup = window.open('', '', 'width=100,height=100');
+
+  // Si fue bloqueada, popup será null
+  if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+    // Mostrar alerta personalizada
+    alert("Please allow pop-ups for this site to continue.");
+  } else {
+    // Si fue permitida, cerrar la ventana inmediatamente
+    popup.close();
+  }
+});
+</script>
+  
 </body>
 </html>
