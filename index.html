@@ -191,5 +191,32 @@ twq('config','pkwdr');
 </script>
 
 
+  <script>
+(function () {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Detectamos si está dentro de una app (webview) como Facebook, Instagram, Twitter (X), etc.
+  var isWebview = /FBAN|FBAV|Instagram|Twitter|Line|WhatsApp|Messenger|TikTok|Snapchat/i.test(ua);
+
+  if (isWebview) {
+    if (/Android/i.test(ua)) {
+      // Si es Android, abrir automáticamente con intent://
+      window.location = 'intent://' + window.location.host + window.location.pathname + window.location.search + '#Intent;scheme=https;package=com.android.chrome;end';
+    } else if (/iPhone|iPad|iPod/i.test(ua)) {
+      // Si es iOS, mostrar un botón para abrir en navegador
+      document.body.innerHTML = `
+        <div style="padding:2em;text-align:center;font-family:sans-serif;background:#f9f9f9;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+          <h2 style="color:#333;">Para continuar</h2>
+          <p style="color:#666;">Debes abrir esta página en tu navegador.</p>
+          <a href="${window.location.href}" style="margin-top:20px;padding:12px 24px;background-color:#007AFF;color:#fff;text-decoration:none;font-size:18px;border-radius:8px;">
+            Abrir en Safari
+          </a>
+        </div>
+      `;
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
